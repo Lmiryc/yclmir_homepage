@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a Full Stack Developer">
+    <title>My Portfolio | Developer & Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <img src="img/image.png" alt="Profile Picture" class="avatar">
+            <h1>Hi, I'm <span class="highlight">Cheng Yang</span> 👋</h1>
+            <p class="bio">
+                Master's student in <strong>Information Science</strong> at University of Michigan.
+                <br>
+                Specializing in Computer Vision, 3D Reconstruction, and AR/VR Applications.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/Lmiryc" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/cheng-yang-77a891385" target="_blank">LinkedIn</a>
+                <a href="mailto:yclmir@umich.edu">Email</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="edu-header">
+                    <h3>University of Michigan</h3>
+                    <span class="location">Ann Arbor, MI</span>
+                </div>
+                <div class="edu-details">
+                    <p><strong>Master of Science, Information Science</strong></p>
+                    <p class="date">Aug. 2025 – Apr. 2027 (expected)</p>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="edu-header">
+                    <h3>Shanghai Jiao Tong University, Joint Institute</h3>
+                    <span class="location">Shanghai, China</span>
+                </div>
+                <div class="edu-details">
+                    <p><strong>Bachelor of Science, Electrical Computer Engineering</strong></p>
+                    <p class="date">Aug. 2022 – Aug. 2026 (expected)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <div class="container">
+            <h2>Internship & Research Experience</h2>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Algorithm Intern, VSTA Tech</h3>
+                    <span class="date">Dec. 2024 – Apr. 2025</span>
+                </div>
+                <p class="subtitle">Remote sensor data analysis and validation </p>
+                <ul>
+                    <li>Investigated the root causes of multi-channel image misalignment in satellite imagery systems, analyzing potential factors including sensor calibration, orbital parameters, and atmospheric interference.</li>
+                    <li>Validated the robustness of the existing coregistration algorithm on public satellite image databases (e.g., Sentinel, Landsat), confirming its feasibility and identifying edge-case scenarios for improvement.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Research Assistant, Shanghai Jiao Tong University</h3>
+                    <span class="date">Mar. 2024 - Aug. 2024</span>
+                </div>
+                <p class="subtitle">Research on 3D Fingerprint Reconstruction & Identification </p>
+                <ul>
+                    <li>Implemented a novel 3D fingerprint reconstruction pipeline utilizing Neural Radiance Fields (NeRF) and 3D Gaussian Splatting (3DGS), achieving high-fidelity geometric and texture recovery.</li>
+                    <li>Pioneered a 3D-3D fingerprint matching framework to verify the feasibility of 3D biometric identification, demonstrating its potential to overcome limitations of traditional 2D fingerprint systems.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Student Research Assistant, IRMV Lab</h3>
+                    <span class="date">Oct. 2024 - Sep. 2025</span>
+                </div>
+                <p class="subtitle">Novel View Synthesis for Autonomous Driving Scene Reconstruction</p>
+                <ul>
+                    <li>Proposed and implemented a novel autonomous driving scene reconstruction solution leveraging OmniRecon for holistic 3D environment modeling.</li>
+                    <li>Applied 2D Gaussian Splatting (2DGS) to structured road surface reconstruction, enhancing reconstruction efficiency and accuracy for lane-level mapping.</li>
+                    <li>Utilized multiple regularization to optimize physical surface of scene, enhancing the geometric properties of the scene.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2>Selected Projects</h2>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Social Media Web Application</h3>
+                        <p>Engineered a full-stack Instagram-like web application implementing core features including user authentication, photo uploads, and follow/like functionality. Developed dynamic client-side pages using Flask templating and JavaScript.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>HTML/JS</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn-link">View Demo &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Immersive VR Mini-Golf Simulation</h3>
+                        <p>Designed and developed an immersive VR golf game for the Meta Quest platform, focusing on physical based interactions. Implemented multiple views and environment navigation for players.</p>
+                        <div class="tags">
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>Meta Quest SDK</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn-link">View Demo &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Occupied Grid Map Generator</h3>
+                        <p>Generated semantic map from LiDAR point cloud data using Rellis-3D dataset. Implemented semantic segmentation based on SegFormer for computer vision applications.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>PyTorch</span>
+                            <span>Computer Vision</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn-link">View Demo &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cheng Yang. Hosted on GitHub Pages.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
