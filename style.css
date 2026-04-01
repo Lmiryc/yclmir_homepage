@@ -88,11 +88,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 
 /* --- 3. Projects Section --- */
-.projects, .education, .honors, .experience {
+.projects, .education, .honors, .experience, .comments-section {
     padding: 40px 0 80px;
 }
 
-.projects h2, .education h2, .honors h2, .experience h2 {
+.projects h2, .education h2, .honors h2, .experience h2, .comments-section h2 {
     margin-bottom: 30px;
     font-size: 1.8rem;
     border-left: 5px solid var(--accent-color);
@@ -279,6 +279,195 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .btn-link:hover {
     color: var(--accent-hover);
+}
+
+/* Comments Section */
+.comments-intro {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.comment-form {
+    margin-top: 18px;
+    display: grid;
+    gap: 10px;
+    max-width: 640px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: var(--card-bg);
+    color: var(--text-main);
+    font: inherit;
+}
+
+.comment-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.comment-submit {
+    width: fit-content;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.comment-submit:hover {
+    background: var(--accent-hover);
+}
+
+.comment-status {
+    min-height: 22px;
+    margin: 14px 0;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    max-width: 760px;
+}
+
+.comment-list li {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+}
+
+.comment-meta {
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    margin-top: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .comment-form input,
+    .comment-form textarea {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .comment-list li {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+/* Admin Page */
+.admin-page {
+    padding: 50px 0 80px;
+}
+
+.admin-panel {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.admin-panel h1 {
+    margin-bottom: 8px;
+}
+
+.admin-panel p {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.admin-form {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.admin-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.admin-form input,
+.admin-btn,
+.admin-action-btn {
+    font: inherit;
+    border-radius: 8px;
+}
+
+.admin-form input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: var(--card-bg);
+    color: var(--text-main);
+}
+
+.admin-btn {
+    border: none;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.admin-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.admin-status {
+    min-height: 22px;
+    margin: 8px 0 16px;
+}
+
+.admin-list {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-list li {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.admin-action-btn {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    background: var(--accent-color);
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .admin-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .admin-form input,
+    .admin-list li {
+        border-color: rgba(255, 255, 255, 0.14);
+    }
 }
 
 /* --- 4. Footer --- */

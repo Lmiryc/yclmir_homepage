@@ -181,11 +181,33 @@
         </div>
     </section>
 
+    <section class="comments-section">
+        <div class="container">
+            <h2>Comments</h2>
+            <p class="comments-intro">Feel free to leave a message. Comments will appear after admin approval.</p>
+            <p><a class="btn-link" href="admin.html">Admin Login &rarr;</a></p>
+
+            <form id="commentForm" class="comment-form">
+                <label for="username">Username</label>
+                <input id="username" name="username" required>
+
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" required></textarea>
+
+                <button type="submit" class="comment-submit">Submit</button>
+            </form>
+
+            <div id="status" class="comment-status"></div>
+            <ul id="commentList" class="comment-list"></ul>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 Cheng Yang. Hosted on GitHub Pages.</p>
         </div>
     </footer>
 
+    <script src="comments.js"></script>
 </body>
 </html>
