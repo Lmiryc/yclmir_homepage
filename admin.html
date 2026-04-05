@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="framer-bg-container" aria-hidden="true"></div>
+
     <section class="admin-page">
         <div class="container">
             <div class="admin-panel">
@@ -42,6 +44,41 @@
             </div>
         </div>
     </section>
+
+    <div class="custom-cursor" id="cursor"></div>
+
+    <script>
+    const cursor = document.getElementById('cursor');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    });
+
+    const interactiveSelector = 'a, button';
+    const textSelector = 'p, h1, h2, h3, h4, h5, h6, span, li, label, input, textarea';
+
+    document.addEventListener('mouseover', (e) => {
+        const interactiveTarget = e.target.closest(interactiveSelector);
+        if (interactiveTarget) {
+            cursor.classList.remove('framer-text');
+            cursor.classList.add('framer-active');
+            return;
+        }
+
+        const textTarget = e.target.closest(textSelector);
+        if (textTarget) {
+            cursor.classList.remove('framer-active');
+            cursor.classList.add('framer-text');
+            return;
+        }
+
+        cursor.classList.remove('framer-active', 'framer-text');
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('framer-active', 'framer-text');
+    });
+    </script>
 
     <script src="admin.js"></script>
 </body>

@@ -1,12 +1,24 @@
 /* --- 1. Variables & Reset --- */
 :root {
-    --bg-color: #f8f9fa;        /* Light background */
-    --card-bg: #ffffff;         /* Card background */
-    --text-main: #2d3436;       /* Main text color */
-    --text-secondary: #636e72;  /* Secondary text color */
-    --accent-color: #0984e3;    /* Main Accent (Links/Buttons) */
-    --accent-hover: #74b9ff;    /* Hover State */
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --bg-color: #ffffff;
+    --bg-subtle: #fbfbfb;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --text-main: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --accent-color: #0984e3;
+    --accent-hover: #74b9ff;
+
+    --glow-1: rgba(255, 182, 193, 0.35);
+    --glow-2: rgba(173, 216, 230, 0.32);
+    --glow-3: rgba(255, 255, 224, 0.24);
+
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --spring-easing: cubic-bezier(0.3, 1.5, 0.5, 1);
+    --shadow:
+        0 2px 4px rgba(0, 0, 0, 0.01),
+        0 4px 8px rgba(0, 0, 0, 0.01),
+        0 10px 20px rgba(0, 0, 0, 0.02),
+        0 20px 40px rgba(0, 0, 0, 0.02);
 }
 
 /* Dark Mode Support */
@@ -28,10 +40,98 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--font-main);
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(255, 182, 193, 0.14), transparent 36%),
+        radial-gradient(circle at 85% 82%, rgba(173, 216, 230, 0.16), transparent 40%),
+        radial-gradient(circle at 50% 95%, rgba(255, 255, 224, 0.12), transparent 34%);
+}
+
+body > *:not(.framer-bg-container):not(.custom-cursor) {
+    position: relative;
+    z-index: 1;
+}
+
+.framer-bg-container {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: var(--bg-color);
+}
+
+.framer-bg-container::before,
+.framer-bg-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(85px);
+    opacity: 1;
+    animation: floatGlow 20s infinite alternate linear;
+}
+
+.framer-bg-container::before {
+    width: 68vw;
+    height: 68vw;
+    background: radial-gradient(circle, var(--glow-1) 0%, rgba(255, 255, 255, 0) 70%);
+    top: -10vw;
+    left: -10vw;
+}
+
+.framer-bg-container::after {
+    width: 58vw;
+    height: 58vw;
+    background: radial-gradient(circle, var(--glow-2) 0%, rgba(255, 255, 255, 0) 70%);
+    bottom: -5vw;
+    right: -5vw;
+    animation-delay: -5s;
+}
+
+.framer-glass-panel {
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 28px;
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow);
+    padding: 28px;
+}
+
+.framer-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    transition: transform 0.4s var(--spring-easing), box-shadow 0.4s var(--spring-easing);
+}
+
+.framer-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.02),
+        0 8px 16px rgba(0, 0, 0, 0.02),
+        0 18px 36px rgba(0, 0, 0, 0.03),
+        0 30px 60px rgba(0, 0, 0, 0.03);
+}
+
+.framer-card:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+@keyframes floatGlow {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(5vw, 5vw) scale(1.1);
+    }
 }
 
 .container {
@@ -95,8 +195,23 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .projects h2, .education h2, .honors h2, .experience h2, .comments-section h2 {
     margin-bottom: 30px;
     font-size: 1.8rem;
-    border-left: 5px solid var(--accent-color);
-    padding-left: 15px;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.projects h2::before,
+.education h2::before,
+.honors h2::before,
+.experience h2::before,
+.comments-section h2::before {
+    content: '';
+    width: 30px;
+    height: 5px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+    flex: 0 0 auto;
 }
 
 /* Education Section */
@@ -215,30 +330,29 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .projects h2 {
     margin-bottom: 30px;
     font-size: 1.8rem;
-    border-left: 5px solid var(--accent-color);
-    padding-left: 15px;
+    padding-left: 0;
 }
 
 /* Responsive Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+@media (max-width: 860px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .project-card {
-    background: var(--card-bg);
-    border-radius: 12px;
     padding: 25px;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
+    min-height: 100%;
 }
 
 .project-card h3 {
@@ -338,11 +452,17 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .comment-list li {
     background: var(--card-bg);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
     padding: 14px;
     margin-bottom: 12px;
+    backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
+    transition: transform 0.4s var(--spring-easing), box-shadow 0.4s var(--spring-easing);
+}
+
+.comment-list li:hover {
+    transform: translateY(-3px);
 }
 
 .comment-meta {
@@ -369,8 +489,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .admin-panel {
     background: var(--card-bg);
-    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
     box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
     padding: 24px;
 }
 
@@ -437,10 +559,13 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 
 .admin-list li {
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 14px;
     padding: 12px;
     margin-bottom: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
 }
 
 .admin-actions {
@@ -477,4 +602,45 @@ footer {
     color: var(--text-secondary);
     font-size: 0.9rem;
     border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+
+
+/*cursor*/
+/* gloabl hidden */
+body, a, button, .framer-card, p, h1, h2, h3, h4, h5, h6, span, li, label, input, textarea {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(29, 29, 31, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s var(--spring-easing),
+              height 0.3s var(--spring-easing),
+              background-color 0.3s ease,
+              border-radius 0.3s var(--spring-easing), 
+              transform 0.05s linear;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.framer-active {
+  width: 40px; 
+  height: 40px;
+  background-color: rgba(29, 29, 31, 0.1); 
+  border: 1px solid rgba(29, 29, 31, 0.3);
+}
+
+.custom-cursor.framer-text {
+  width: 2px; 
+  height: 24px;
+  background-color: rgba(29, 29, 31, 0.5); 
+  border-radius: 2px; 
+  border: none;
 }

@@ -9,9 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="framer-bg-container" aria-hidden="true"></div>
 
     <header class="hero">
-        <div class="container">
+        <div class="container framer-glass-panel">
             <img src="img/image.png" alt="Profile Picture" class="avatar">
             <h1>Hi, I'm <span class="highlight">Cheng Yang</span> </h1>
             <p class="bio">
@@ -28,7 +29,7 @@
     </header>
 
     <section class="education">
-        <div class="container">
+        <div class="container framer-glass-panel">
             <h2>Education</h2>
             <div class="education-item">
                 <div class="edu-header">
@@ -54,7 +55,7 @@
     </section>
 
     <section class="experience">
-        <div class="container">
+        <div class="container framer-glass-panel">
             <h2>Internship & Research Experience</h2>
             
             <div class="experience-item">
@@ -97,11 +98,11 @@
     </section>
 
     <section class="projects">
-        <div class="container">
+        <div class="container framer-glass-panel">
             <h2>Selected Projects</h2>
             <div class="project-grid">
                 
-                <div class="project-card">
+                <div class="project-card framer-card">
                     <div class="card-content">
                         <h3>Social Media Web Application</h3>
                         <p>Engineered a full-stack Instagram-like web application implementing core features including user authentication, photo uploads, and follow/like functionality. Developed dynamic client-side pages using Flask templating and JavaScript.</p>
@@ -117,7 +118,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card framer-card">
                     <div class="card-content">
                         <h3>Immersive VR Mini-Golf Simulation</h3>
                         <p>Designed and developed an immersive VR golf game for the Meta Quest platform, focusing on physical based interactions. Implemented multiple views and environment navigation for players.</p>
@@ -132,7 +133,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card framer-card">
                     <div class="card-content">
                         <h3>Occupied Grid Map Generator</h3>
                         <p>Generated semantic map from LiDAR point cloud data using Rellis-3D dataset. Implemented semantic segmentation based on SegFormer for computer vision applications.</p>
@@ -146,7 +147,7 @@
                         <a href="https://docs.google.com/presentation/d/1FMSWFL8jzmyuXwc9nLog_Xr46szzyhSs/edit?slide=id.p1#slide=id.p1" class="btn-link">View Demo &rarr;</a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card framer-card">
                     <div class="card-content">
                         <h3>Methane Emission Flux Calculation with IME Method</h3>
                         <p>Developed an atmospheric methane flux inversion system using the Integrated Mass Enhancement (IME) method. Integrated ERA5 reanalysis data (pressure, temperature, 10m wind components) to quantify methane emissions from regional sources. Implemented spatial interpolation techniques and uncertainty quantification based on wind speed variability and plume detection errors.</p>
@@ -162,7 +163,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card framer-card">
                     <div class="card-content">
                         <h3>Grab N Cook - Student Cooking Platform</h3>
                         <p>Designed a comprehensive app prototype for college students. Features include shopping assistance based on transportation access, easy budgeting tools, and AI-powered cooking guidance specifically designed for students. Led UX research, prototyping, and user testing throughout the design process.</p>
@@ -182,7 +183,7 @@
     </section>
 
     <section class="comments-section">
-        <div class="container">
+        <div class="container framer-glass-panel">
             <h2>Comments</h2>
             <p class="comments-intro">Feel free to leave a message. Comments will appear after admin approval.</p>
             <p><a class="btn-link" href="admin.html">Admin Login &rarr;</a></p>
@@ -207,7 +208,44 @@
             <p>&copy; 2026 Cheng Yang. Hosted on GitHub Pages.</p>
         </div>
     </footer>
+    <div class="custom-cursor" id="cursor"></div>
 
+    <script>
+    const cursor = document.getElementById('cursor');
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    });
+
+
+    const interactiveElements = document.querySelectorAll('a, button, .framer-card');
+    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, li, label, input, textarea');
+
+    interactiveElements.forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+        cursor.classList.remove('framer-text');
+        cursor.classList.add('framer-active');
+        });
+        el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('framer-active');
+        });
+    });
+
+    textElements.forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+        if (el.closest('a, button, .framer-card')) return;
+        cursor.classList.remove('framer-active');
+        cursor.classList.add('framer-text');
+        });
+        el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('framer-text');
+        });
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('framer-active', 'framer-text');
+    });
+    </script>
     <script src="comments.js"></script>
 </body>
 </html>
