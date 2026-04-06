@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +13,19 @@
 
     <header class="hero">
         <div class="container framer-glass-panel">
-            <div class="lang-switch" aria-label="Language switch">
-                <span class="active">English</span>
+            <div class="lang-switch" aria-label="语言切换">
+                <a href="index.html">English</a>
                 <span class="divider">/</span>
-                <a href="index_cn.html">Chinese</a>
+                <span class="active">Chinese</span>
             </div>
             <img src="img/image.png" alt="Profile Picture" class="avatar">
-            <h1>Hi, I'm <span class="highlight">Cheng Yang</span> </h1>
+            <h1>Hi, 我是 <span class="highlight">杨程</span> </h1>
             <p class="bio">
-                Master's student in <strong>Information Science</strong> at University of Michigan.
+                密西根大学<strong>信息科学</strong>在读硕士
                 <br>
-                Specializing in Frontend/Backend Development, 3D Reconstruction, UX Design and AR/VR Applications.
+                上海交通大学浦江国际学院<strong>电子与计算机工程</strong>在读本科生
+                <br>
+                专注于计算机视觉 (CV)、前后端开发及 AR/VR 开发领域。
             </p>
             <div class="social-links">
                 <a href="https://github.com/Lmiryc" target="_blank">GitHub</a>
@@ -35,25 +37,25 @@
 
     <section class="education">
         <div class="container framer-glass-panel">
-            <h2>Education</h2>
+            <h2>教育经历</h2>
             <div class="education-item">
                 <div class="edu-header">
-                    <h3>University of Michigan</h3>
-                    <span class="location">Ann Arbor, MI</span>
+                    <h3>密西根大学</h3>
+                    <span class="location">安娜堡， 密西根州</span>
                 </div>
                 <div class="edu-details">
-                    <p><strong>Master of Science, Information Science</strong></p>
-                    <p class="date">Aug. 2025 - Apr. 2027 (expected)</p>
+                    <p><strong>信息科学硕士</strong></p>
+                    <p class="date">2025.08 - 2027.04 (expected)</p>
                 </div>
             </div>
             <div class="education-item">
                 <div class="edu-header">
-                    <h3>Shanghai Jiao Tong University, Joint Institute</h3>
-                    <span class="location">Shanghai, China</span>
+                    <h3>上海交通大学浦江国际学院</h3>
+                    <span class="location">上海，中国</span>
                 </div>
                 <div class="edu-details">
-                    <p><strong>Bachelor of Science, Electrical Computer Engineering</strong></p>
-                    <p class="date">Aug. 2022 - Aug. 2026 (expected)</p>
+                    <p><strong>工学学士，电子与计算机工程</strong></p>
+                    <p class="date">2022.08 - 2026.08 (expected)</p>
                 </div>
             </div>
         </div>
@@ -61,42 +63,41 @@
 
     <section class="experience">
         <div class="container framer-glass-panel">
-            <h2>Internship & Research Experience</h2>
+            <h2>实习 & 科研经历</h2>
             
             <div class="experience-item">
                 <div class="exp-header">
-                    <h3>Algorithm Intern, VSAT Tech</h3>
-                    <span class="date">Dec. 2024 - Apr. 2025</span>
+                    <h3>算法实习生， 上海蔚星科技有限公司</h3>
+                    <span class="date">2024.12 - 2025.04</span>
                 </div>
-                <p class="subtitle">Remote sensor data analysis and validation </p>
                 <ul>
-                    <li>Investigated the root causes of multi-channel image misalignment in satellite imagery systems, analyzing potential factors including sensor calibration, orbital parameters, and atmospheric interference.</li>
-                    <li>Validated the robustness of the existing coregistration algorithm on public satellite image databases (e.g., Sentinel, Landsat), confirming its feasibility and identifying edge-case scenarios for improvement.</li>
+                    <li>遥感精校准算法的探究与改进。</li>
+                    <li>基于葵花8号与哨兵2号公开数据集的火点监测算法实改进。</li>
+                    <li>基于高分5号的点源甲烷识别及排放估算的实现。</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <div class="exp-header">
-                    <h3>Research Assistant, Shanghai Jiao Tong University</h3>
-                    <span class="date">Mar. 2024 - Aug. 2024</span>
+                    <h3>研究助理 上海交通大学人工智能研究院</h3>
+                    <span class="date">2024.03 - 2024.08</span>
                 </div>
-                <p class="subtitle">Research on 3D Fingerprint Reconstruction & Identification </p>
+                <p class="subtitle">基于多视图图像的 3D 指纹重建与识别研究</p>
                 <ul>
-                    <li>Implemented a novel 3D fingerprint reconstruction pipeline utilizing Neural Radiance Fields (NeRF) and 3D Gaussian Splatting (3DGS), achieving high-fidelity geometric and texture recovery.</li>
-                    <li>Pioneered a 3D-3D fingerprint matching framework to verify the feasibility of 3D biometric identification, demonstrating its potential to overcome limitations of traditional 2D fingerprint systems.</li>
+                    <li>学习并复现NeRF,3DGS等三维重建算法</li>
+                    <li>基于重建后的指纹点云,结合已有的NIST,MCC算法进行三维指纹识别。 </li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <div class="exp-header">
-                    <h3>Student Research Assistant, IRMV Lab</h3>
-                    <span class="date">Oct. 2024 - Sep. 2025</span>
+                    <h3>研究助理, IRMV Lab</h3>
+                    <span class="date">2024.10- 2025.09</span>
                 </div>
-                <p class="subtitle">Novel View Synthesis for Autonomous Driving Scene Reconstruction</p>
+                <p class="subtitle">自动驾驶场景重建</p>
                 <ul>
-                    <li>Proposed and implemented a novel autonomous driving scene reconstruction solution leveraging OmniRecon for holistic 3D environment modeling.</li>
-                    <li>Applied 2D Gaussian Splatting (2DGS) to structured road surface reconstruction, enhancing reconstruction efficiency and accuracy for lane-level mapping.</li>
-                    <li>Utilized multiple regularization to optimize physical surface of scene, enhancing the geometric properties of the scene.</li>
+                    <li>利用2DGS改写drivestudio的3DGS重建方式。</li>
+                    <li>通过预处理法线正则化重建，提高重建几何性质。</li>
                 </ul>
             </div>
         </div>
@@ -104,13 +105,13 @@
 
     <section class="projects">
         <div class="container framer-glass-panel">
-            <h2>Selected Projects</h2>
+            <h2>课内项目</h2>
             <div class="project-grid">
                 
                 <div class="project-card framer-card">
                     <div class="card-content">
-                        <h3>Social Media Web Application</h3>
-                        <p>Engineered a full-stack Instagram-like web application implementing core features including user authentication, photo uploads, and follow/like functionality. Developed dynamic client-side pages using Flask templating and JavaScript.</p>
+                        <h3>社交媒体 Web 应用</h3>
+                        <p>开发了一个类 Instagram 的全栈 Web 应用，实现了用户认证、照片上传、关注与点赞等核心功能；并使用 Flask 模板与 JavaScript 构建动态前端页面。</p>
                         <div class="tags">
                             <span>Python</span>
                             <span>Flask</span>
@@ -119,14 +120,14 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="http://ec2-3-129-23-53.us-east-2.compute.amazonaws.com" class="btn-link">View Demo &rarr;</a>
+                        <a href="http://ec2-3-129-23-53.us-east-2.compute.amazonaws.com" class="btn-link">查看演示 &rarr;</a>
                     </div>
                 </div>
 
                 <div class="project-card framer-card">
                     <div class="card-content">
-                        <h3>Immersive VR Mini-Golf Simulation</h3>
-                        <p>Designed and developed an immersive VR golf game for the Meta Quest platform, focusing on physical based interactions. Implemented multiple views and environment navigation for players.</p>
+                        <h3>沉浸式 VR 迷你高尔夫模拟</h3>
+                        <p>面向 Meta Quest 平台设计并开发沉浸式 VR 高尔夫游戏，重点实现基于物理的交互体验；为玩家提供多视角切换与场景导航功能。</p>
                         <div class="tags">
                             <span>Unity</span>
                             <span>C#</span>
@@ -134,14 +135,14 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="https://docs.google.com/presentation/d/1ydFZGQSufuiWo41kwWksnqCWUHA-8zW2/edit?usp=sharing&ouid=110331859558280944101&rtpof=true&sd=true" class="btn-link">View Demo &rarr;</a>
+                        <a href="https://docs.google.com/presentation/d/1ydFZGQSufuiWo41kwWksnqCWUHA-8zW2/edit?usp=sharing&ouid=110331859558280944101&rtpof=true&sd=true" class="btn-link">查看演示 &rarr;</a>
                     </div>
                 </div>
 
                 <div class="project-card framer-card">
                     <div class="card-content">
-                        <h3>Occupied Grid Map Generator</h3>
-                        <p>Generated semantic map from LiDAR point cloud data using Rellis-3D dataset. Implemented semantic segmentation based on SegFormer for computer vision applications.</p>
+                        <h3>栅格地图生成器</h3>
+                        <p>基于 Rellis-3D 数据集的 LiDAR 点云数据生成语义地图，并实现基于 SegFormer 的语义分割方法，用于计算机视觉场景应用。</p>
                         <div class="tags">
                             <span>Python</span>
                             <span>PyTorch</span>
@@ -149,13 +150,13 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="https://docs.google.com/presentation/d/1FMSWFL8jzmyuXwc9nLog_Xr46szzyhSs/edit?slide=id.p1#slide=id.p1" class="btn-link">View Demo &rarr;</a>
+                        <a href="https://docs.google.com/presentation/d/1FMSWFL8jzmyuXwc9nLog_Xr46szzyhSs/edit?slide=id.p1#slide=id.p1" class="btn-link">查看演示 &rarr;</a>
                     </div>
                 </div>
                 <div class="project-card framer-card">
                     <div class="card-content">
-                        <h3>Methane Emission Flux Calculation with IME Method</h3>
-                        <p>Developed an atmospheric methane flux inversion system using the Integrated Mass Enhancement (IME) method. Integrated ERA5 reanalysis data (pressure, temperature, 10m wind components) to quantify methane emissions from regional sources. Implemented spatial interpolation techniques and uncertainty quantification based on wind speed variability and plume detection errors.</p>
+                        <h3>基于 IME 方法的甲烷排放通量计算</h3>
+                        <p>使用积分质量增强（IME）方法开发大气甲烷通量反演系统，整合 ERA5 再分析数据（气压、温度、10m 风场分量）以量化区域源甲烷排放，并结合风速变化与羽流识别误差实现空间插值与不确定性评估。</p>
                         <div class="tags">
                             <span>Python</span>
                             <span>ERA5 Data</span>
@@ -164,14 +165,14 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="https://github.com/Lmiryc/Methane_Calc" class="btn-link">View Project &rarr;</a>
+                        <a href="https://github.com/Lmiryc/Methane_Calc" class="btn-link">查看项目 &rarr;</a>
                     </div>
                 </div>
 
                 <div class="project-card framer-card">
                     <div class="card-content">
-                        <h3>Grab N Cook - Student Cooking Platform</h3>
-                        <p>Designed a comprehensive app prototype for college students. Features include shopping assistance based on transportation access, easy budgeting tools, and AI-powered cooking guidance specifically designed for students. Led UX research, prototyping, and user testing throughout the design process.</p>
+                        <h3>Grab N Cook - 学生烹饪平台</h3>
+                        <p>为大学生设计了综合型应用原型，包含基于交通条件的采购辅助、简易预算工具，以及面向学生场景的 AI 烹饪指导；并在设计全流程中主导了 UX 研究、原型制作与用户测试。</p>
                         <div class="tags">
                             <span>UX Design</span>
                             <span>User Research</span>
@@ -179,7 +180,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="https://sites.google.com/umich.edu/grab-n-cook/case-study-grab-n-cook" class="btn-link">View Project &rarr;</a>
+                        <a href="https://sites.google.com/umich.edu/grab-n-cook/case-study-grab-n-cook" class="btn-link">查看项目 &rarr;</a>
                     </div>
                 </div>
 
