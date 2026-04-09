@@ -22,7 +22,8 @@ function createCommentItem(item) {
 
   const timeEl = document.createElement("div");
   timeEl.className = "comment-meta";
-  timeEl.textContent = item.created_at;
+  const date = new Date(item.created_at);
+  timeEl.textContent = date.toLocaleString();
 
   li.appendChild(nameEl);
   li.appendChild(textEl);
