@@ -9,12 +9,13 @@
 <body>
     <div class="framer-bg-container" aria-hidden="true"></div>
 
-    <section class="admin-page">
+    <main class="admin-page" id="main-content">
         <div class="container">
             <div class="admin-panel">
                 <h1>Admin Moderation</h1>
-                <p>API: https://yclmir.pythonanywhere.com/api/v1/</p>
-                <p><a class="btn-link" href="index.html">Back to Homepage &rarr;</a></p>
+                <nav aria-label="Admin navigation">
+                    <p><a class="btn-link" href="index.html">Back to Homepage &rarr;</a></p>
+                </nav>
 
                 <form id="loginForm" class="admin-form">
                     <div class="admin-row">
@@ -31,8 +32,8 @@
                 </form>
 
                 <div class="admin-toolbar">
-                    <button id="checkSessionBtn" type="button" class="admin-action-btn">Check Session</button>
-                    <button id="refreshPendingBtn" type="button" class="admin-action-btn">Refresh Pending</button>
+                    <!-- <button id="checkSessionBtn" type="button" class="admin-action-btn">Check Session</button> -->
+                    <!-- <button id="refreshPendingBtn" type="button" class="admin-action-btn">Refresh Pending</button> -->
                     <button id="logoutBtn" type="button" class="admin-action-btn">Logout</button>
                 </div>
 
@@ -43,7 +44,7 @@
                 <ul id="pendingList" class="admin-list"></ul>
             </div>
         </div>
-    </section>
+    </main>
 
     <div class="custom-cursor" id="cursor"></div>
 

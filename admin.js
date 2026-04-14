@@ -25,6 +25,36 @@ function parseError(payload, fallback) {
   return payload.message || fallback;
 }
 
+function setAuthUi(loggedIn, username = "") {
+  if (loginFormEl) {
+    loginFormEl.classList.toggle("is-hidden", loggedIn);
+  }
+
+  if (logoutBtnEl) {
+    logoutBtnEl.classList.toggle("is-hidden", !loggedIn);
+  }
+
+  if (loggedIn) {
+    whoamiEl.textContent = `Current admin user: ${username}`;
+  } else {
+    whoamiEl.textContent = "Admin not logged in";
+  }
+}
+
+function isLoggedInPayload(payload) {
+  if (!payload || typeof payload !== "object") {
+    return false;
+  }
+  return Boolean(payload.loggedIn || payload.logged_in || payload.isLoggedIn);
+}
+
+function getUsernamePayload(payload) {
+  if (!payload || typeof payload !== "object") {
+    return "";
+  }
+  return payload.username || payload.user?.username || payload.admin || "";
+}
+
 async function requestJson(url, options = {}) {
   const response = await fetch(url, {
     ...options,
@@ -53,12 +83,12 @@ async function refreshSession() {
     return false;
   }
 
-  if (payload.loggedIn) {
-    whoamiEl.textContent = `Admin logged in as: ${payload.username}`;
+  if (isLoggedInPayload(payload)) {
+    setAuthUi(true, getUsernamePayload(payload) || "unknown");
     return true;
   }
 
-  whoamiEl.textContent = "Admin not logged in";
+  setAuthUi(false);
   return false;
 }
 
@@ -179,35 +209,44 @@ loginFormEl.addEventListener("submit", async (event) => {
   }
 
   setStatus("Admin login success.");
-  await refreshSession();
+  setAuthUi(true, username || "unknown");
   await loadPending();
 });
 
-checkSessionBtnEl.addEventListener("click", async () => {
-  const loggedIn = await refreshSession();
-  if (loggedIn) {
-    setStatus("Admin session is active.");
-  } else {
-    setStatus("Admin not logged in.", true);
-  }
-});
+if (checkSessionBtnEl) {
+  checkSessionBtnEl.addEventListener("click", async () => {
+    const loggedIn = await refreshSession();
+    if (loggedIn) {
+      setStatus("Admin session is active.");
+    } else {
+      setStatus("Admin not logged in.", true);
+    }
+  });
+}
 
-refreshPendingBtnEl.addEventListener("click", async () => {
-  await loadPending();
-});
+if (refreshPendingBtnEl) {
+  refreshPendingBtnEl.addEventListener("click", async () => {
+    await loadPending();
+  });
+}
 
-logoutBtnEl.addEventListener("click", async () => {
-  const { response, payload } = await requestJson(LOGOUT_ENDPOINT, { method: "POST" });
+if (logoutBtnEl) {
+  logoutBtnEl.addEventListener("click", async () => {
+    const { response, payload } = await requestJson(LOGOUT_ENDPOINT, { method: "POST" });
 
-  if (!response.ok) {
-    setStatus(parseError(payload, "Logout failed"), true);
-    return;
-  }
+    if (!response.ok) {
+      setStatus(parseError(payload, "Logout failed"), true);
+      return;
+    }
 
-  setStatus("Admin logged out.");
-  await refreshSession();
-  renderPending([]);
-});
+    setStatus("Admin logged out.");
+    setAuthUi(false);
+    loginFormEl?.reset();
+    renderPending([]);
+  });
+}
+
+setAuthUi(false);
 
 refreshSession().catch(() => {
   setStatus("Failed to initialize admin page.", true);

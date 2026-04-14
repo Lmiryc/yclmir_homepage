@@ -7,6 +7,11 @@
     --text-secondary: #6e6e73;
     --accent-color: #0984e3;
     --accent-hover: #74b9ff;
+    --link-color: #0056b3;
+    --link-hover: #004494;
+    --button-bg: #0063cc;
+    --button-bg-hover: #0052a8;
+    --button-text: #ffffff;
 
     --glow-1: rgba(255, 182, 193, 0.35);
     --glow-2: rgba(173, 216, 230, 0.32);
@@ -29,6 +34,11 @@
         --text-main: #f1f1f1;
         --text-secondary: #a0a0a0;
         --accent-color: #74b9ff;
+        --link-color: #9cc7ff;
+        --link-hover: #b9d8ff;
+        --button-bg: #1d5fbf;
+        --button-bg-hover: #174f9e;
+        --button-text: #ffffff;
         --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 }
@@ -420,12 +430,12 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .btn-link {
     font-weight: 600;
-    color: var(--accent-color);
+    color: var(--link-color);
     font-size: 0.9rem;
 }
 
 .btn-link:hover {
-    color: var(--accent-hover);
+    color: var(--link-hover);
 }
 
 /* Comments Section */
@@ -462,14 +472,14 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     padding: 10px 18px;
     border: none;
     border-radius: 8px;
-    background: var(--accent-color);
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     font-weight: 600;
     cursor: pointer;
 }
 
 .comment-submit:hover {
-    background: var(--accent-hover);
+    background: var(--button-bg-hover);
 }
 
 .comment-status {
@@ -520,6 +530,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     padding: 50px 0 80px;
 }
 
+.is-hidden {
+    display: none !important;
+}
+
 .admin-panel {
     background: var(--card-bg);
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -567,11 +581,15 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .admin-btn {
     border: none;
-    background: var(--accent-color);
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     padding: 10px 14px;
     cursor: pointer;
     font-weight: 600;
+}
+
+.admin-btn:hover {
+    background: var(--button-bg-hover);
 }
 
 .admin-toolbar {
@@ -611,8 +629,12 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     border: none;
     padding: 8px 12px;
     cursor: pointer;
-    background: var(--accent-color);
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
+}
+
+.admin-action-btn:hover {
+    background: var(--button-bg-hover);
 }
 
 @media (max-width: 700px) {
