@@ -661,41 +661,41 @@ footer {
 
 
 
-/*cursor*/
-/* gloabl hidden */
+/* cursor disabled for better UX
 body, a, button, .framer-card, p, h1, h2, h3, h4, h5, h6, span, li, label, input, textarea {
-  cursor: none !important;
+    cursor: none !important;
 }
 
 .custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background-color: rgba(29, 29, 31, 0.8);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.3s var(--spring-easing),
-              height 0.3s var(--spring-easing),
-              background-color 0.3s ease,
-              border-radius 0.3s var(--spring-easing), 
-              transform 0.05s linear;
-  transform: translate(-50%, -50%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(29, 29, 31, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s var(--spring-easing),
+                            height 0.3s var(--spring-easing),
+                            background-color 0.3s ease,
+                            border-radius 0.3s var(--spring-easing), 
+                            transform 0.05s linear;
+    transform: translate(-50%, -50%);
 }
 
 .custom-cursor.framer-active {
-  width: 40px; 
-  height: 40px;
-  background-color: rgba(29, 29, 31, 0.1); 
-  border: 1px solid rgba(29, 29, 31, 0.3);
+    width: 40px; 
+    height: 40px;
+    background-color: rgba(29, 29, 31, 0.1); 
+    border: 1px solid rgba(29, 29, 31, 0.3);
 }
 
 .custom-cursor.framer-text {
-  width: 2px; 
-  height: 24px;
-  background-color: rgba(29, 29, 31, 0.5); 
-  border-radius: 2px; 
-  border: none;
+    width: 2px; 
+    height: 24px;
+    background-color: rgba(29, 29, 31, 0.5); 
+    border-radius: 2px; 
+    border: none;
 }
+*/
